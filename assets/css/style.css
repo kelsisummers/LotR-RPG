@@ -1,0 +1,11 @@
+/* CSS Background Effect */
+
+body, html {
+    background-color: black;
+    background-image: url("../images/mountdoom.jpg"); 
+    color: white;
+  }
+
+  img {
+      padding: 20px;
+  }
