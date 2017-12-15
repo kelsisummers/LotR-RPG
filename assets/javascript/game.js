@@ -40,9 +40,11 @@ $('.ringHP').text(ring.health + ' HP');
 
 // Click Samwise for Champion
   $('#samwise').one("click", function () {
+    $('#champion').append('<h2>Game Stats</h2><div id="stats"></div>');
+    $('#samwise').removeClass('float');
 
     // Moving Gollum
-    $('#opponents').append( $('#gollum').off('click').removeClass('bg-dark').addClass('bg-danger'));
+    $('#opponents').append( $('#gollum').off('click').removeClass('bg-dark').removeClass('float').addClass('bg-danger'));
 
     //Selecting Gollum As Combatant 
     $('#gollum').one('click', function () {
@@ -58,8 +60,7 @@ $('.ringHP').text(ring.health + ' HP');
         samwise.health = samwise.health - gollum.counter;
         $('.gollumHP').text(gollum.health + ' HP');
         $('.samwiseHP').text(samwise.health + ' HP');
-        $('#championStats').html('<h4>Samwise Attack: ' + samwise.attack + '</h4>');
-        $('#opponentStats').html('<h4>Gollum Counter: ' + gollum.counter + '</h4>');
+        $('#stats').html('<h4>Samwise Attack: ' + samwise.attack + '<br>Gollum Counter: ' + gollum.counter + '</h4>');
 
         // Sam Dies
         if (samwise.health <= 0) {
@@ -80,8 +81,7 @@ $('.ringHP').text(ring.health + ' HP');
               gandalf.health = gandalf.health - samwise.attack;
               $('.gandalfHP').text(gandalf.health + ' HP');
               samwise.health = samwise.health - gandalf.counter
-              $('#championStats').html('<h4>Samwise Attack: ' + samwise.attack + '</h4>');
-              $('#opponentStats').html('<h4>Gandalf Counter: ' + gandalf.counter + '</h4>');
+              $('#stats').html('<h4>Samwise Attack: ' + samwise.attack + '<br>Gandalf Counter: ' + gandalf.counter + '</h4>');
 
               // Sam Dies
               if (samwise.health <= 0) {
@@ -101,8 +101,7 @@ $('.ringHP').text(ring.health + ' HP');
                   ring.health = ring.health - samwise.attack;
                   $('.ringHP').text(ring.health + ' HP');
                   samwise.health = samwise.health - ring.counter
-                  $('#championStats').html('<h4>Samwise Attack: ' + samwise.attack + '</h4>');
-                  $('#opponentStats').html('<h4>The One Ring Counter: ' + ring.counter + '</h4>');
+                  $('#stats').html('<h4>Samwise Attack: ' + samwise.attack + '<br>The One Ring Counter: ' + ring.counter + '</h4>');
 
                   // Sam Dies
                   if (samwise.health <= 0) {
@@ -121,7 +120,7 @@ $('.ringHP').text(ring.health + ' HP');
     });
 
     // Moving Gandalf
-    $('#opponents').append( $('#gandalf').off('click').removeClass('bg-dark').addClass('bg-danger'));
+    $('#opponents').append( $('#gandalf').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
     // Selecting Gandalf As Combatant
     $('#gandalf').one('click', function () {
@@ -138,7 +137,7 @@ $('.ringHP').text(ring.health + ' HP');
     });
 
     // Moving The Ring
-    $('#opponents').append( $('#thering').off('click').removeClass('bg-dark').addClass('bg-danger'));
+    $('#opponents').append( $('#thering').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
     // Selecting The Ring As Combatant
     $('#thering').one('click', function () {
@@ -159,9 +158,11 @@ $('.ringHP').text(ring.health + ' HP');
   
   // Click Gollum for Champion
   $('#gollum').one("click", function() {
+    $('#champion').append('<h2>Game Stats</h2><div id="stats"></div>');
+    $('#gollum').removeClass('float');
 
     // Moving Samwise
-    $('#opponents').append( $('#samwise').off('click').removeClass('bg-dark').addClass('bg-danger'));
+    $('#opponents').append( $('#samwise').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
     // Selecting Samwise As Combatant
     $('#samwise').one('click', function () {
@@ -178,7 +179,7 @@ $('.ringHP').text(ring.health + ' HP');
     });
 
     // Moving Gandalf
-    $('#opponents').append( $('#gandalf').off('click').removeClass('bg-dark').addClass('bg-danger'));
+    $('#opponents').append( $('#gandalf').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
     // Selecting Gandalf As Combatant
     $('#gandalf').one('click', function () {
@@ -195,7 +196,7 @@ $('.ringHP').text(ring.health + ' HP');
     });
 
     // Move The Ring
-    $('#opponents').append( $('#thering').off('click').removeClass('bg-dark').addClass('bg-danger'));
+    $('#opponents').append( $('#thering').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
     // Selecting The Ring As Combatant
     $('#thering').one('click', function () {
@@ -216,9 +217,11 @@ $('.ringHP').text(ring.health + ' HP');
   
   // Click Gandalf for Champion
     $('#gandalf').one("click", function() {
+      $('#champion').append('<h2>Game Stats</h2><div id="stats"></div>');
+      $('#gandalf').removeClass('float');
 
       // Moving Samwise
-      $('#opponents').append( $('#samwise').off('click').removeClass('bg-dark').addClass('bg-danger'));
+      $('#opponents').append( $('#samwise').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
       // Selecting Samwise As Combatant
       $('#samwise').one('click', function () {
@@ -235,7 +238,7 @@ $('.ringHP').text(ring.health + ' HP');
       });
 
       // Moving Gollum
-      $('#opponents').append( $('#gollum').off('click').removeClass('bg-dark').addClass('bg-danger'));
+      $('#opponents').append( $('#gollum').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
       // Selecting Gollum As Combatant
       $('#gollum').one('click', function () {
@@ -252,7 +255,7 @@ $('.ringHP').text(ring.health + ' HP');
       });
 
       // Moving The Ring
-      $('#opponents').append( $('#thering').off('click').removeClass('bg-dark').addClass('bg-danger'));
+      $('#opponents').append( $('#thering').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
       // Selecting The Ring As Combatant
       $('#thering').one('click', function () {
@@ -273,9 +276,11 @@ $('.ringHP').text(ring.health + ' HP');
 
 // Click The Ring for Champion
   $('#thering').one("click", function() {
+    $('#champion').append('<h2>Game Stats</h2><div id="stats"></div>');
+    $('#thering').removeClass('float');
 
     // Moving Samwise
-    $('#opponents').append( $('#samwise').off('click').removeClass('bg-dark').addClass('bg-danger'));
+    $('#opponents').append( $('#samwise').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
     // Selecting Samwise As Combatant
     $('#samwise').one('click', function () {
@@ -292,7 +297,7 @@ $('.ringHP').text(ring.health + ' HP');
     });
     
     // Moving Gandalf
-    $('#opponents').append( $('#gandalf').off('click').removeClass('bg-dark').addClass('bg-danger'));
+    $('#opponents').append( $('#gandalf').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
     // Selecting Gandalf As Combatant
     $('#gandalf').one('click', function () {
@@ -309,7 +314,7 @@ $('.ringHP').text(ring.health + ' HP');
     });
 
     // Moving Gollum
-    $('#opponents').append( $('#gollum').off('click').removeClass('bg-dark').addClass('bg-danger'));
+    $('#opponents').append( $('#gollum').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
     // Selecting Gollum As Combatant
     $('#gollum').one('click', function () {

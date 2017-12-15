@@ -2,15 +2,43 @@ body, html {
     background-color: black;
     background-image: url("../images/mountdoom.jpg"); 
     color: white;
+    font-family: 'VT323', monospace;
+    letter-spacing: 2px;
   }
 
   img {
-      padding: 20px;
-      width: 85%;
+      padding: 10px;
+      width: 225px;
+      margin-bottom: -25px;
+      border-radius: 15px;
+  }
+
+  h2 {
+      font-size: 50px;
+      margin-left: 10px;
+  }
+
+  h4 {
+      margin-left: 10px;
   }
 
 .footer {
     position: fixed;
     bottom: 0;
     left: 0;
+    font-family: 'Metal Mania', cursive;
+    letter-spacing: 2px;
+    font-size: 75px;
+}
+
+#gollum, #samwise, #gandalf, #thering {
+    width: 300px; 
+    height: 300px; 
+    display: inline-block;
+    margin: 10px;
+    border-radius: 10px
+}
+
+.float{
+    float: left;
 }
