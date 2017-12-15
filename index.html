@@ -6,23 +6,88 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lord of the Rings RPG</title>
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    
+
     <!-- CSS Effect -->
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 <body>
 
-<h1>Battle of Mount Doom</h1>
 
+<div class='row'>
+<div class="col-lg-6">
 <h2> Choose Your Champion</h2>
-<div id='champion'></div>
+<div id='championStats'></div> 
 
-<h2 id='opponents'>Choose Your Opponent</h2>
+<div id='champion'>
+    
+   <!-- The Combatants  -->
 
-<h2 id='defender'>Defender</h2>
+    <!-- Samwise -->
+    <div id = 'samwise' class="card text-white bg-dark mb-3 text-center" style="max-width: 300px; max-height: 300px; display: inline-block; margin: 10px">
+        <!-- <div class="card-header">Samwise Gamgee</div> -->
+        <div class="card-body">
+          <h4 class="card-title">Samwise Gamgee</h4>
+          <img src="assets/images/samwise.jpg" alt="Samwise Gamgee">
+          <br>
+          <small class="text-white samwiseHP"></small>
+        </div>
+      </div>
 
-<h2>Fight</h2>
+      <!-- Gollum -->
+      <div id = 'gollum' class="card text-white bg-dark mb-3 text-center" style="max-width: 300px; max-height: 300px; display: inline-block; margin: 10px">
+        <!-- <div class="card-header">Samwise Gamgee</div> -->
+        <div class="card-body">
+          <h4 class="card-title">Gollum (alias Smeagol)</h4>
+          <img src="assets/images/gollum.jpg" alt="Gollum">
+          <br>
+          <small class="text-white gollumHP"></small>
+        </div>
+      </div>
+
+      <!-- Gandalf -->
+      <div id = 'gandalf' class="card text-white bg-dark mb-3 text-center" style="max-width: 300px; max-height: 300px; display: inline-block; margin: 10px">
+        <!-- <div class="card-header">Samwise Gamgee</div> -->
+        <div class="card-body">
+          <h4 class="card-title">Gandalf the White</h4>
+          <img src="assets/images/gandalf.jpg" alt="Gandalf the White">
+          <br>
+          <small class="text-white gandalfHP"></small>
+        </div>
+      </div>
+
+      <!-- The Ring -->
+      <div id = 'thering' class="card text-white bg-dark mb-3 text-center" style="max-width: 300px; max-height: 300px; display: inline-block; margin: 10px">
+        <!-- <div class="card-header">Samwise Gamgee</div> -->
+        <div class="card-body">
+          <h4 class="card-title">The One Ring</h4>
+          <img src="assets/images/ring.jpg" alt="The Ring">
+          <br>
+          <small class="text-white ringHP"></small>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class='col-lg-6'>
+<h2>Choose Your Opponent</h2>
+<div id='opponents'></div>
+
+<h2>Battle</h2><span id ="opponentStats"></span>
+<div id='defender'></div>
+</div>
+</div>
+
+<!-- Game Title -->
+<footer class="footer">
+    <div class="container-fluid">
+      <h1>Battle of Mount Doom</h1>
+    </div>
+  </footer>
 
 
 
