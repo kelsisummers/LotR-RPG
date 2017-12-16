@@ -30,6 +30,20 @@ var ring = {
 
 console.log(ring);
 
+function fightFunction(champion, opponent) {
+  champion.attack = ((champion.attack) + 10);
+  opponent.health = opponent.health - champion.attack;
+  champion.health = champion.health - opponent.counter;
+  if (champion.health <= 0) {
+    alert('Game Over');
+  } 
+  // else if (opponent.health <= 0) {
+
+  // }
+}
+
+console.log(fightFunction(samwise, gollum));
+
 // Writing Health Points to HTML
 $('.samwiseHP').text(samwise.health + ' HP');
 $('.gollumHP').text(gollum.health + ' HP');
@@ -46,6 +60,12 @@ $('.ringHP').text(ring.health + ' HP');
     // Moving Gollum
     $('#opponents').append( $('#gollum').off('click').removeClass('bg-dark').removeClass('float').addClass('bg-danger'));
 
+    // Moving Gandalf
+    $('#opponents').append( $('#gandalf').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
+
+    // Moving The Ring
+    $('#opponents').append( $('#thering').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
+
     //Selecting Gollum As Combatant 
     $('#gollum').one('click', function () {
       $('#defender').append($('#gollum'));
@@ -55,72 +75,11 @@ $('.ringHP').text(ring.health + ' HP');
 
       // Fighting Gollum First
       $('.gollumFight').on('click', function () {
-        samwise.attack = ((samwise.attack) + 10);
-        gollum.health = gollum.health - samwise.attack;
-        samwise.health = samwise.health - gollum.counter;
+        gollum.health = gollum.health -10;
         $('.gollumHP').text(gollum.health + ' HP');
-        $('.samwiseHP').text(samwise.health + ' HP');
-        $('#stats').html('<h4>Samwise Attack: ' + samwise.attack + '<br>Gollum Counter: ' + gollum.counter + '</h4>');
-
-        // Sam Dies
-        if (samwise.health <= 0) {
-          alert('Game Over');
-
-        // Gollum Dies; Clear Board
-        } else if (gollum.health <= 0) {
-          $('#defender').empty();
-          $('#opponentStats').empty();
-          $('#defender').html('<h1>Choose Next Opponent</h1>');
-          
-          // Gandalf is Chosen
-          $('#gandalf').one('click', function (){
-            $('#defender').html($('#gandalf').append('<button type="button" class="btn btn-danger gandalfFight">Fight!</button>'));
-
-            $('.gandalfFight').on('click', function () {
-              samwise.attack = ((samwise.attack) + 10);
-              gandalf.health = gandalf.health - samwise.attack;
-              $('.gandalfHP').text(gandalf.health + ' HP');
-              samwise.health = samwise.health - gandalf.counter
-              $('#stats').html('<h4>Samwise Attack: ' + samwise.attack + '<br>Gandalf Counter: ' + gandalf.counter + '</h4>');
-
-              // Sam Dies
-              if (samwise.health <= 0) {
-               alert('Game Over');
-              // Gandalf Dies; Clear Board
-              } else if (gandalf.health <= 0) {
-              $('#defender').empty();
-              $('#opponentStats').empty();
-              $('#defender').html('<h1>Choose Next Opponent</h1>');
-
-              // The Ring is Chosen
-              $('#thering').one('click', function() {
-                $('#defender').html($('#thering').append('<button type="button" class="btn btn-danger ringFight">Fight!</button>'));  
-                
-                $('.ringFight').on('click', function () {
-                  samwise.attack = ((samwise.attack) + 10);
-                  ring.health = ring.health - samwise.attack;
-                  $('.ringHP').text(ring.health + ' HP');
-                  samwise.health = samwise.health - ring.counter
-                  $('#stats').html('<h4>Samwise Attack: ' + samwise.attack + '<br>The One Ring Counter: ' + ring.counter + '</h4>');
-
-                  // Sam Dies
-                  if (samwise.health <= 0) {
-                    alert('Game Over');
-                  } else if (ring.health <=0) {
-                    alert('You win!');
-                  }
-                })
-              })
-              
-              }
-            });
-          });
-        };
       });
     });
 
-    // Moving Gandalf
-    $('#opponents').append( $('#gandalf').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
     // Selecting Gandalf As Combatant
     $('#gandalf').one('click', function () {
@@ -135,9 +94,6 @@ $('.ringHP').text(ring.health + ' HP');
         $('.gandalfHP').text(gandalf.health + ' HP');
       });
     });
-
-    // Moving The Ring
-    $('#opponents').append( $('#thering').off('click').removeClass('bg-dark').addClass('bg-danger').removeClass('float'));
 
     // Selecting The Ring As Combatant
     $('#thering').one('click', function () {
