@@ -5,23 +5,38 @@ body, html {
     font-family: 'VT323', monospace;
     letter-spacing: 2px;
     font-size: 20px;
+    margin-left: 10px;
   }
 
+h2 {
+    font-size: 50px;
+}
+
+
+
+  /* Character Cards */
   img {
       padding: 15px;
       width: 225px;
-      margin-bottom: -25px;
       border-radius: 15px;
   }
 
-  h2 {
-      font-size: 50px;
-      margin-left: 10px;
-  }
+  #gollum, #samwise, #gandalf, #thering {
+    width: 310px; 
+    height: 310px; 
+    display: inline-block;
+    margin-left: 10px;
+    border-radius: 10px
+}
 
-  h4 {
-      margin-left: 10px;
-  }
+.card-body {
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.float {
+    float: left;
+}
 
 .footer {
     position: fixed;
@@ -30,18 +45,6 @@ body, html {
     font-family: 'Metal Mania', cursive;
     letter-spacing: 2px;
     font-size: 75px;
-}
-
-#gollum, #samwise, #gandalf, #thering {
-    width: 310px; 
-    height: 310px; 
-    display: inline-block;
-    margin: 10px;
-    border-radius: 10px
-}
-
-.card-body {
-    padding: 15px;
 }
 
 .btn-danger {

@@ -1,12 +1,19 @@
 // Global Variables
 var playerCharacter;
 var enemyCharacter;
+var samwise= $('#samwise')
+var gollum = $('#gollum')
+var gandalf = $('#gandalf')
+var ring = $('#thering');
 
 // Character Stats
-$('#samwise').data("stats", {name: 'Samwise Gamgee', health: 115 , attack: 15,counter: 10})
-$('#gollum').data('stats', {name: 'Gollum', health: 150, attack: 5, counter: 15})
-$('#gandalf').data('stats', {name: 'Gandalf the White', health: 200, attack: 15, counter: 20})
-$('#thering').data('stats', {name: 'The One Ring', health: 120, attack: 25, counter: 5})
+$('#samwise').data("stats", {name: 'Samwise Gamgee', health: 100 , attack: 15, counter: 12});
+
+$('#gollum').data('stats', {name: 'Gollum', health: 120, attack: 0, counter: 12});
+
+$('#gandalf').data('stats', {name: 'Gandalf the White', health: 150, attack: 5, counter: 20});
+
+$('#thering').data('stats', {name: 'The One Ring', health: 180, attack: 15, counter: 7});
 
 // Troubleshooting Objects
 console.log($('#samwise').data());
@@ -17,77 +24,79 @@ console.log($('#thering').data());
 // Game Functions
 $(document).ready(function(){
 
-// Writing HP to HTML
-// $('.HP').text(playerCharacter.data('stats').health + ' HP');
-// $('.HP').text(enemyCharacter.data('stats').health + ' HP');
-// $('.gandalfHP').text($('#gandalf').data('stats').health + ' HP');
-// $('.ringHP').text($('#thering').data('stats').health + ' HP');
-
-
+  // Click Functions to Select Champion and Enemy
 $(".card").on("click", function(e) {
-  
+
+  // Selecting Champion
   if ($(this).hasClass("characters") && !playerCharacter) {
     playerCharacter = $(this);
     $("#champion").append(playerCharacter);
-    playerCharacter.removeClass('characters');
-    $('#opponents').append($('.characters'));
-    playerCharacter.append('<span id = "championHP">' + playerCharacter.data('stats').health + ' HP</span>');
+    playerCharacter.off('click');
+    playerCharacter.removeClass('characters').removeClass('float');
+    $('#opponents').append($('.characters').removeClass('float'));
+
+
+    // Champion HP Dynamically Revealed and Displayed
+    playerCharacter.append('<div id = "championHP">' + playerCharacter.data('stats').health + ' HP</div>');
+
+  // Selecting Enemy 
   } else if (playerCharacter && !enemyCharacter && playerCharacter.data('stats').health > 0) {
+
+    // Creates Game Stats Div
     $('#gameStats').html('<h2>Game Stats</h2><div id="stats"></div>');
     enemyCharacter = $(this);
+
+    // Moves Enemy and Adds Fight Button
     $("#defender").append(enemyCharacter);
-    $('#fight').append('<button type="button" class="btn btn-danger">Fight!</button>'); 
-    enemyCharacter.append('<span id ="enemyHP">' + enemyCharacter.data('stats').health + ' HP</span>');
-  }  
-  console.log(playerCharacter.data('stats'))
-})
+    $('#fight').append('<button type="button" class="btn btn-danger">Fight!</button>');
 
-function fight() {
+    // Enemy HP Dynamically Revealed and Displayed
+    enemyCharacter.append('<div id ="enemyHP">' + enemyCharacter.data('stats').health + ' HP</div>');
 
-  if (playerCharacter.data('stats').health >= 0) {
-
-  playerCharacter.data('stats').attack = ((playerCharacter.data('stats').attack) + 10);
-
-  //player attacks first
-  enemyCharacter.data('stats').health -= playerCharacter.data('stats').attack;
-
-  //enemy counters
-  playerCharacter.data('stats').health -= enemyCharacter.data('stats').counter;
-
-  console.log(playerCharacter.data('stats'));
-  } else {
-    alert('Game Over');
+  // If The Champion Loses
+  } else if (playerCharacter.data('stats').health <= 0) {
+    alert('Game Over')
     if (confirm ('Would you like to play again?') === true) {
-      reset();
-    } else {
+      location.reload();
+      } else {
       alert ('Long Live The Fellowship');
     }
   }
-}
-
-function reset() {
-  playerCharacter: null;
-  enemyCharacter: null;
-  $('#defender').empty();
-  $('opponenets').empty();
-  $('#fight').empty();
-  $('#gameStats').empty();
-  $('#champion').html($('#samwise'));
-  $('#champion').append($('#gollum'));
-  $('#champion').append($('#gandalf'));
-  $('#champion').append($('#thering'));
-}
+});
 
 
+// Fighting Function
+function fight() {
+
+  // Champion Strikes First
+  playerCharacter.data('stats').attack = ((playerCharacter.data('stats').attack) + 10);
+
+  enemyCharacter.data('stats').health -= playerCharacter.data('stats').attack;
+
+  // Enemy Counters
+  playerCharacter.data('stats').health -= enemyCharacter.data('stats').counter;
+};
+
+
+// Click to Start Fight Function
 $("#fight").on("click", function(e) {
-  
+
+  // Call Fight Function
   fight();
+
+  // Updates HP on HTML
   $("#championHP").text(playerCharacter.data('stats').health + ' HP');
   $('#enemyHP').text(enemyCharacter.data('stats').health + ' HP');
 
+  // If The Enemy is Alive
   if (enemyCharacter.data('stats').health > 0) {
+
+    // Update Game Stats
     $('#stats').html('<h4>' + playerCharacter.data('stats').name + ' Attack: ' + playerCharacter.data('stats').attack + '<br>' + enemyCharacter.data('stats').name + ' Counter: ' + enemyCharacter.data('stats').counter + '</h4>');
-} else if (enemyCharacter.data('stats').health <= 0) {
+
+    // If Not, Wipe The Slate Clean
+  } else if (enemyCharacter.data('stats').health <= 0) {
+    $('#enemyHP').empty();
     $("#defender").empty();
     $('#defender').html('<h1>Choose Next Opponent</h1>')
     $('#fight').empty();
@@ -95,6 +104,4 @@ $("#fight").on("click", function(e) {
     $('#stats').empty();
   }
 })
-
-
 });
