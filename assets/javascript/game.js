@@ -2,119 +2,98 @@
 var playerCharacter;
 var enemyCharacter;
 
-var characters = {
-  samwise: {
-    name: 'Samwise Gamgee',
-    health: 115,
-    attack: 0,
-    counter: 10,
-},
-  gollum: {
-    name: 'Gollum',
-    health: 150,
-    attack: 5,
-    counter: 15,
-},
-  gandalf: {
-    name: 'Gandalf the White',
-    health: 200,
-    attack: 15,
-    counter: 20,
-},
-  ring: {
-    name: 'The One Ring',
-    health: 100,
-    attack: 20,
-    counter: 5,
-}
-};
+// Character Stats
+$('#samwise').data("stats", {name: 'Samwise Gamgee', health: 115 , attack: 15,counter: 10})
+$('#gollum').data('stats', {name: 'Gollum', health: 150, attack: 5, counter: 15})
+$('#gandalf').data('stats', {name: 'Gandalf the White', health: 200, attack: 15, counter: 20})
+$('#thering').data('stats', {name: 'The One Ring', health: 120, attack: 25, counter: 5})
 
 // Troubleshooting Objects
-console.log(characters);
+console.log($('#samwise').data());
+console.log($('#gollum').data());
+console.log($('#gandalf').data());
+console.log($('#thering').data());
 
 // Game Functions
 $(document).ready(function(){
 
 // Writing HP to HTML
-$('.samwiseHP').text(characters.samwise.health + ' HP');
-$('.gollumHP').text(characters.gollum.health + ' HP');
-$('.gandalfHP').text(characters.gandalf.health + ' HP');
-$('.ringHP').text(characters.ring.health + ' HP');
+// $('.HP').text(playerCharacter.data('stats').health + ' HP');
+// $('.HP').text(enemyCharacter.data('stats').health + ' HP');
+// $('.gandalfHP').text($('#gandalf').data('stats').health + ' HP');
+// $('.ringHP').text($('#thering').data('stats').health + ' HP');
 
-// Fight Function
-// function fightingFunction (champion, opponent) {
-//   champion.attack = ((champion.attack) + 10);
-//   opponent.health -= champion.attack;
-//   champion.health -= opponent.counter;
-
-//     if (champion.health <= 0) {
-//       alert('Game Over');
-//     } else if (opponent.health <= 0) {
-//       $('#defender').empty();
-//       $('#opponentStats').empty();
-//       $('#defender').html('<h1>Choose Next Opponent</h1>');
-//       $('#opponents').on('click', function() {
-//         $('#defender').html($('#opponents'));
-//       });
-//     };
-// };
-
-
-// this method will need a separate click handler for your attack button
 
 $(".card").on("click", function(e) {
-  console.log(this);
   
   if ($(this).hasClass("characters") && !playerCharacter) {
-    console.log("Im a character");
     playerCharacter = $(this);
     $("#champion").append(playerCharacter);
     playerCharacter.removeClass('characters');
     $('#opponents').append($('.characters'));
-    //steps to set up our player character
-  } else if (playerCharacter && !enemyCharacter) {
-    console.log("I'm an enemy");
+    playerCharacter.append('<span id = "championHP">' + playerCharacter.data('stats').health + ' HP</span>');
+  } else if (playerCharacter && !enemyCharacter && playerCharacter.data('stats').health > 0) {
+    $('#gameStats').html('<h2>Game Stats</h2><div id="stats"></div>');
     enemyCharacter = $(this);
     $("#defender").append(enemyCharacter);
-    $('#fight').append('<button type="button" class="btn btn-danger">Fight!</button>');
-    // $("#fight").prop("disabled", false);
-    // create the attack button
-    // build characters based off of objects     
-  } 
-  
-
-  // else {
-  //   // this technically would not happen here, but illustrates how a dead character could be handled with this method 
-  //   // enemy is considered dead
-  //   $("#defender").empty();
-  //   enemyCharacter = null;
-  // }
+    $('#fight').append('<button type="button" class="btn btn-danger">Fight!</button>'); 
+    enemyCharacter.append('<span id ="enemyHP">' + enemyCharacter.data('stats').health + ' HP</span>');
+  }  
+  console.log(playerCharacter.data('stats'))
 })
 
 function fight() {
 
-  playerCharacter.attack = ((playerCharacter.attack) + 10);
+  if (playerCharacter.data('stats').health >= 0) {
+
+  playerCharacter.data('stats').attack = ((playerCharacter.data('stats').attack) + 10);
 
   //player attacks first
-  enemyCharacter.health -= playerCharacter.attack;
-  
+  enemyCharacter.data('stats').health -= playerCharacter.data('stats').attack;
 
-  // surprise thingy here -- logic
-  
   //enemy counters
-  playerCharacter -= enemyCharacter.counter;
+  playerCharacter.data('stats').health -= enemyCharacter.data('stats').counter;
 
-  // playerCharacter.text(playerCharacter.health + ' HP');
-  // enemyCharacter.text(enemyCharacter.health + ' HP');
-  // console.log(this);
-  console.log(playerCharacter.attack);
+  console.log(playerCharacter.data('stats'));
+  } else {
+    alert('Game Over');
+    if (confirm ('Would you like to play again?') === true) {
+      reset();
+    } else {
+      alert ('Long Live The Fellowship');
+    }
+  }
+}
+
+function reset() {
+  playerCharacter: null;
+  enemyCharacter: null;
+  $('#defender').empty();
+  $('opponenets').empty();
+  $('#fight').empty();
+  $('#gameStats').empty();
+  $('#champion').html($('#samwise'));
+  $('#champion').append($('#gollum'));
+  $('#champion').append($('#gandalf'));
+  $('#champion').append($('#thering'));
 }
 
 
 $("#fight").on("click", function(e) {
-  console.log("call our fight function");
-  console.log(playerCharacter);
+  
   fight();
+  $("#championHP").text(playerCharacter.data('stats').health + ' HP');
+  $('#enemyHP').text(enemyCharacter.data('stats').health + ' HP');
+
+  if (enemyCharacter.data('stats').health > 0) {
+    $('#stats').html('<h4>' + playerCharacter.data('stats').name + ' Attack: ' + playerCharacter.data('stats').attack + '<br>' + enemyCharacter.data('stats').name + ' Counter: ' + enemyCharacter.data('stats').counter + '</h4>');
+} else if (enemyCharacter.data('stats').health <= 0) {
+    $("#defender").empty();
+    $('#defender').html('<h1>Choose Next Opponent</h1>')
+    $('#fight').empty();
+    enemyCharacter = null;
+    $('#stats').empty();
+  }
 })
 
 

@@ -4,10 +4,11 @@ body, html {
     color: white;
     font-family: 'VT323', monospace;
     letter-spacing: 2px;
+    font-size: 20px;
   }
 
   img {
-      padding: 10px;
+      padding: 15px;
       width: 225px;
       margin-bottom: -25px;
       border-radius: 15px;
@@ -32,13 +33,17 @@ body, html {
 }
 
 #gollum, #samwise, #gandalf, #thering {
-    width: 300px; 
-    height: 300px; 
+    width: 310px; 
+    height: 310px; 
     display: inline-block;
     margin: 10px;
     border-radius: 10px
 }
 
-.float{
-    float: left;
+.card-body {
+    padding: 15px;
+}
+
+.btn-danger {
+    margin-left: 130px;
 }
