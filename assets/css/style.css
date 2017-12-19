@@ -57,4 +57,24 @@ h2 {
     font-size: 75px;
 }
 
+/* Game Over Text */
 
+.flashit{
+    color:white;
+      -webkit-animation: flash linear 1s infinite;
+      animation: flash linear 1s infinite;
+      font-size: 150px;
+      font-family: 'VT323', monospace;
+      letter-spacing: 2px;
+      margin-top: 250px;
+  }
+  @-webkit-keyframes flash {
+      0% { opacity: 1; } 
+      50% { opacity: .1; } 
+      100% { opacity: 1; }
+  }
+  @keyframes flash {
+      0% { opacity: 1; } 
+      50% { opacity: .1; } 
+      100% { opacity: 1; }
+  }

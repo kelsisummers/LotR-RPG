@@ -72,6 +72,12 @@ function fight() {
       location.reload();
       } else {
       alert ('Long Live The Fellowship');
+      $('#champion').empty().addClass('flashit').text('Game Over');
+      $('#opponents').empty().addClass('flashit').text('Game Over');
+      $('#battle').remove();
+      $('#defender').empty();
+      $('#gameStats').empty();
+      $('#fight').empty();
     }
   } 
 };
@@ -108,6 +114,12 @@ $("#fight").on("click", function(e) {
       location.reload();
       } else {
       alert ('Long Live The Fellowship');
+      $('#champion').empty().addClass('flashit').text('Game Over');
+      $('#opponents').empty().addClass('flashit').text('Game Over');
+      $('#battle').remove();
+      $('#defender').empty();
+      $('#gameStats').empty();
+      $('#fight').empty();
     }
   }
 }
