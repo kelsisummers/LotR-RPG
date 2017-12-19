@@ -1,10 +1,7 @@
 // Global Variables
 var playerCharacter;
 var enemyCharacter;
-var samwise= $('#samwise')
-var gollum = $('#gollum')
-var gandalf = $('#gandalf')
-var ring = $('#thering');
+
 
 // Character Stats
 $('#samwise').data("stats", {name: 'Samwise Gamgee', health: 100 , attack: 15, counter: 12});
@@ -41,10 +38,10 @@ $(".card").on("click", function(e) {
 
   // Selecting Enemy 
   } else if (playerCharacter && !enemyCharacter && playerCharacter.data('stats').health > 0) {
+    enemyCharacter = $(this);
 
     // Creates Game Stats Div
     $('#gameStats').html('<h2>Game Stats</h2><div id="stats"></div>');
-    enemyCharacter = $(this);
 
     // Moves Enemy and Adds Fight Button
     $("#defender").append(enemyCharacter);

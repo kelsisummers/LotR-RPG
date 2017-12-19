@@ -50,3 +50,7 @@ h2 {
 .btn-danger {
     margin-left: 130px;
 }
+
+#championHP, #enemyHP {
+    margin-top: -45px;
+}
