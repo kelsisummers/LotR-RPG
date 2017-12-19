@@ -1,3 +1,4 @@
+/* General */
 body, html {
     background-color: black;
     background-image: url("../images/mountdoom.jpg"); 
@@ -5,11 +6,11 @@ body, html {
     font-family: 'VT323', monospace;
     letter-spacing: 2px;
     font-size: 20px;
-    margin-left: 10px;
   }
 
 h2 {
     font-size: 50px;
+    margin-left: 10px;
 }
 
 

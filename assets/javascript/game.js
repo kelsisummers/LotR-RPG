@@ -66,10 +66,15 @@ function fight() {
   // Enemy Counters
   playerCharacter.data('stats').health -= enemyCharacter.data('stats').counter;
 
+  // If Champion Dies
   if (playerCharacter.data('stats').health <= 0) {
-    alert('Game Over')
+    alert('Game Over');
+
+    // If User Wants to Play Again...
     if (confirm ('Would you like to play again?') === true) {
       location.reload();
+
+      // If Not...
       } else {
       alert ('Long Live The Fellowship');
       $('#champion').empty().addClass('flashit').text('Game Over');
@@ -103,23 +108,31 @@ $("#fight").on("click", function(e) {
   } else if (enemyCharacter.data('stats').health <= 0) {
     $('#enemyHP').empty();
     $("#defender").empty();
-    $('#defender').html('<h1>Choose Next Opponent</h1>')
+    $('#defender').html('<h1>Choose Next Opponent</h1>');
     $('#fight').empty();
     enemyCharacter = null;
     $('#stats').empty();
+
+    // Determining Winning Conditions
     enemyDefeat++;
+
+    // If All Enemies Defeated...
       if (enemyDefeat === 3) {
-        alert('All Enemies Defeated')
+        alert('All Enemies Defeated');
+
+        // If User Wants To Play Again...
         if (confirm ('Would you like to play again?') === true) {
-      location.reload();
-      } else {
-      alert ('Long Live The Fellowship');
-      $('#champion').empty().addClass('flashit').text('Game Over');
-      $('#opponents').empty().addClass('flashit').text('Game Over');
-      $('#battle').remove();
-      $('#defender').empty();
-      $('#gameStats').empty();
-      $('#fight').empty();
+          location.reload();
+        
+        // If Not...
+        } else {
+        alert ('Long Live The Fellowship');
+        $('#champion').empty().addClass('flashit').text('Game Over');
+        $('#opponents').empty().addClass('flashit').text('Game Over');
+        $('#battle').remove();
+        $('#defender').empty();
+        $('#gameStats').empty();
+        $('#fight').empty();
     }
   }
 }
