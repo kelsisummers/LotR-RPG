@@ -1,6 +1,7 @@
 // Global Variables
 var playerCharacter;
 var enemyCharacter;
+var enemyDefeat = 0;
 
 
 // Character Stats
@@ -23,6 +24,7 @@ $(document).ready(function(){
 
   // Click Functions to Select Champion and Enemy
 $(".card").on("click", function(e) {
+  
 
   // Selecting Champion
   if ($(this).hasClass("characters") && !playerCharacter) {
@@ -37,7 +39,7 @@ $(".card").on("click", function(e) {
     playerCharacter.append('<div id = "championHP">' + playerCharacter.data('stats').health + ' HP</div>');
 
   // Selecting Enemy 
-  } else if (playerCharacter && !enemyCharacter && playerCharacter.data('stats').health > 0) {
+  } else if (playerCharacter && !enemyCharacter) {
     enemyCharacter = $(this);
 
     // Creates Game Stats Div
@@ -49,16 +51,7 @@ $(".card").on("click", function(e) {
 
     // Enemy HP Dynamically Revealed and Displayed
     enemyCharacter.append('<div id ="enemyHP">' + enemyCharacter.data('stats').health + ' HP</div>');
-
-  // If The Champion Loses
-  } else if (playerCharacter.data('stats').health <= 0) {
-    alert('Game Over')
-    if (confirm ('Would you like to play again?') === true) {
-      location.reload();
-      } else {
-      alert ('Long Live The Fellowship');
-    }
-  }
+  } 
 });
 
 
@@ -72,6 +65,15 @@ function fight() {
 
   // Enemy Counters
   playerCharacter.data('stats').health -= enemyCharacter.data('stats').counter;
+
+  if (playerCharacter.data('stats').health <= 0) {
+    alert('Game Over')
+    if (confirm ('Would you like to play again?') === true) {
+      location.reload();
+      } else {
+      alert ('Long Live The Fellowship');
+    }
+  } 
 };
 
 
@@ -99,6 +101,15 @@ $("#fight").on("click", function(e) {
     $('#fight').empty();
     enemyCharacter = null;
     $('#stats').empty();
+    enemyDefeat++;
+      if (enemyDefeat === 3) {
+        alert('All Enemies Defeated')
+        if (confirm ('Would you like to play again?') === true) {
+      location.reload();
+      } else {
+      alert ('Long Live The Fellowship');
+    }
   }
+}
 })
 });
