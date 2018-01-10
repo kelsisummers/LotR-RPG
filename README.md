@@ -1,6 +1,6 @@
 # week-4-game
 
-Project 5: Create an interactive Role Playing Game (RPG) using JavaScript and JQuery.
+Project 5: Create an interactive Role Playing Game (RPG) using JavaScript and jQuery.
 
 Theme: Lord of the Rings
 
