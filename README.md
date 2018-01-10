@@ -12,3 +12,5 @@ Instructions:
   - When an Opponent is defeated, you must select a new opponent
   - To win the game, all opponents must be defeated
   - Hint: The challenge is choosing the right enemies, not choosing the strongest player.
+
+GitHub Pages Link: https://kelsisummers.github.io/LotR-RPG-JavaScript-JQuery/
