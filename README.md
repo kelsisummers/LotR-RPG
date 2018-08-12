@@ -1,6 +1,6 @@
 # LotR-RPG-JavaScript-JQuery
 
-Project 5: Create an interactive Role Playing Game (RPG) using JavaScript and jQuery.
+An interactive Role Playing Game (RPG) using JavaScript and jQuery.
  
 Theme: Lord of the Rings
  
@@ -16,8 +16,8 @@ Instructions:
  - Hint: The challenge is choosing the right enemies, not choosing the strongest player.
   
 Software Stack:
- - Javascript
+ - JavaScript
  - jQuery
  - HTML
  - CSS
- - Bootstrap Framework
+ - Bootstrap CSS Framework
