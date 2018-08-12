@@ -19,71 +19,74 @@
 </head>
 <body>
 
-<div class='row'>
-  <div class="col-lg-6">
+<div class="page-layout">
+  <div class='row game-container'>
+    <div class="col-lg-6 champion-container">
 
-   <!-- Champions Displayed Here  -->
-    <h2> Choose Your Champion</h2>
-      <div id='champion'>
+    <!-- Champions Displayed Here  -->
+      <h2> Choose Your Champion</h2>
+        <div id='champion'>
 
-    <!-- Samwise -->
-      <div id = 'samwise' class="card text-white bg-dark mb-3 text-center characters float">
-          <div class="card-body">
-            <h4 class="card-title" style="font-size: 25px; font-family: 'Cormorant Unicase', serif;">Samwise Gamgee</h4>
-            <img src="assets/images/samwise.jpg" alt="Samwise Gamgee">
-            <br>
+      <!-- Samwise -->
+        <div id = 'samwise' class="card text-white bg-dark mb-3 text-center characters float">
+            <div class="card-body">
+              <h4 class="card-title" style="font-size: 25px; font-family: 'Cormorant Unicase', serif;">Samwise Gamgee</h4>
+              <img src="assets/images/samwise.jpg" alt="Samwise Gamgee">
+              <br>
+            </div>
           </div>
-        </div>
 
-      <!-- Gollum -->
-        <div id = 'gollum' class="card text-white bg-dark mb-3 text-center characters float">
-          <div class="card-body">
-            <h4 class="card-title" style="font-size: 20px; font-family: 'Cormorant Unicase', serif;">Gollum (aka Smeagol)</h4>
-            <img src="assets/images/gollum.jpg" alt="Gollum">
+        <!-- Gollum -->
+          <div id = 'gollum' class="card text-white bg-dark mb-3 text-center characters float">
+            <div class="card-body">
+              <h4 class="card-title" style="font-size: 20px; font-family: 'Cormorant Unicase', serif;">Gollum (aka Smeagol)</h4>
+              <img src="assets/images/gollum.jpg" alt="Gollum">
+            </div>
           </div>
-        </div>
 
-      <!-- Gandalf -->
-        <div id = 'gandalf' class="card text-white bg-dark mb-3 text-center characters float">
-          <div class="card-body">
-            <h4 class="card-title" style="font-size: 23px; font-family: 'Cormorant Unicase', serif;">Gandalf the White</h4>
-            <img src="assets/images/gandalf.jpg" alt="Gandalf the White">
+        <!-- Gandalf -->
+          <div id = 'gandalf' class="card text-white bg-dark mb-3 text-center characters float">
+            <div class="card-body">
+              <h4 class="card-title" style="font-size: 23px; font-family: 'Cormorant Unicase', serif;">Gandalf the White</h4>
+              <img src="assets/images/gandalf.jpg" alt="Gandalf the White">
+            </div>
           </div>
-        </div>
 
-      <!-- The Ring -->
-        <div id = 'thering' class="card text-white bg-dark mb-3 text-center characters float">
-          <div class="card-body">
-            <h4 class="card-title" style="font-size: 25px; font-family: 'Cormorant Unicase', serif;">The One Ring</h4>
-            <img src="assets/images/ring.jpg" alt="The Ring">
+        <!-- The Ring -->
+          <div id = 'thering' class="card text-white bg-dark mb-3 text-center characters float">
+            <div class="card-body">
+              <h4 class="card-title" style="font-size: 25px; font-family: 'Cormorant Unicase', serif;">The One Ring</h4>
+              <img src="assets/images/ring.jpg" alt="The Ring">
+            </div>
           </div>
-        </div>
-    </div>
+      </div>
 
-    <!-- Game Fight Stats Will Display Here -->
-    <br>
-    <div id="gameStats"></div>
-</div>
-
-  <div class='col-lg-6'>
-
-    <!-- Possible Opponents Will Display Here -->
-    <h2>Choose Your Opponent</h2>
-      <div id='opponents'></div>
-
-    <!-- Current Opponent and Fight Button Will Display Here-->
-    <h2 id = 'battle' >Battle</h2>
-      <div id='defender'></div>
-      <div id='fight'></div>
+      <!-- Game Fight Stats Will Display Here -->
+      <br>
+      <div id="gameStats"></div>
   </div>
-</div>
+
+    <div class='col-lg-6 opponent-container'>
+
+      <!-- Possible Opponents Will Display Here -->
+      <h2>Choose Your Opponent</h2>
+        <div id='opponents'></div>
+
+      <!-- Current Opponent and Fight Button Will Display Here-->
+      <h2 id='battle'>Battle</h2>
+        <div id='defender'></div>
+        <div id='fight'></div>
+    </div>
+  </div>
 
 <!-- Game Title -->
   <footer class="footer">
-    <div class="container-fluid">
+    <!-- <div class="container-fluid"> -->
       <p>Battle of Mount Doom</p>
-    </div>
+    <!-- </div> -->
   </footer>
+
+</div>
 
 <!-- Javascript and JQuery Links -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
