@@ -1,10 +1,10 @@
 # LotR-RPG-JavaScript-JQuery
 
+GitHub Pages: https://kelsisummers.github.io/LotR-RPG/
+
 An interactive Role Playing Game (RPG) using JavaScript and jQuery.
  
 Theme: Lord of the Rings
- 
-GitHub Pages: https://kelsisummers.github.io/LotR-RPG/
  
 Instructions:
  - To Choose Your Champion, click on the photo of a character
