@@ -15,7 +15,7 @@ Instructions:
  - To win the game, all opponents must be defeated
  - Hint: The challenge is choosing the right enemies, not choosing the strongest player.
   
-Software Stack:
+Tech Stack:
  - JavaScript
  - jQuery
  - HTML
