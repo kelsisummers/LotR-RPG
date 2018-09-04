@@ -1,6 +1,6 @@
 # LotR-RPG-JavaScript-JQuery
 
-GitHub Pages: https://kelsisummers.github.io/LotR-RPG/
+<strong>Hosted App Link: https://kelsisummers.github.io/LotR-RPG/</strong>
 
 An interactive Role Playing Game (RPG) using JavaScript and jQuery.
  
