@@ -1,4 +1,4 @@
-# LotR-RPG-JavaScript-JQuery
+# LotR-RPG
 
 <strong>Hosted App Link: https://kelsisummers.github.io/LotR-RPG/</strong>
 
